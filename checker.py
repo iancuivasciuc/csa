@@ -3,14 +3,6 @@ import argparse
 import subprocess
 import signal
 
-"""
-Dictionary mapping each exercise name to its test data, including:
-- 'summary': 
-- 'description': 
-- 'example': 
-- 'inputs': A tuple of input values for the exercise.
-- 'outputs': A tuple of expected outputs corresponding to the inputs.
-"""
 exercises = {
     "prime": {
         "summary": "Determine if a given number is a prime number.",
@@ -24,8 +16,12 @@ exercises = {
             "output": "Yes",
             "explanation": "5 is a prime number because it is only divisible by 1 and 5."
         },
-        "inputs": ("5", "0", "1", "2", "7", "49", "16", "-121", "-12", "-5"),
-        "outputs": ("Yes", "No", "No", "Yes", "Yes", "No", "No", "No", "No", "No"),
+        "inputs": (
+            "5", "0", "1", "2", "7", "49", "16", "-121", "-12", "-5", "63619949", "47334659", "20876407", "90642613",
+            "40713271", "982412988", "289654629", "296575351"),
+        "outputs": (
+            "Yes", "No", "No", "Yes", "Yes", "No", "No", "No", "No", "No", "Yes", "Yes", "Yes", "Yes", "Yes", "No",
+            "No", "No"),
     },
     "fibonacci": {
         "summary": "Thinking about it",
