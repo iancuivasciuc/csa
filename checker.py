@@ -13,6 +13,7 @@ exercises = {
 }
 
 max_exercise_len = max(len(exercise) for exercise in exercises)
+timeout = 5
 
 
 def is_executable(file):
@@ -31,23 +32,35 @@ def check_exercise(exercise):
         print("🔴 File is not executable!")
         return
 
+    assert len(exercises[exercise]["inputs"]) == len(exercises[exercise]["outputs"])
+
     # Iterate through test cases
     for index, input_data in enumerate(exercises[exercise]["inputs"]):
-        # Run the process with input and capture output
-        process = subprocess.run(
-            [exercise],
-            input=input_data,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True,
-        )
+        input_with_newline = input_data + "\n"
 
-        # Capture output and error
-        stdout, stderr = process.stdout, process.stderr
-        return_code = process.returncode
+        try:
+            # Run the process with input and capture output
+            result = subprocess.run(
+                [exercise],
+                input=input_with_newline,
+                capture_output=True,
+                timeout=timeout,
+                check=True,
+                text=True,
+            )
 
-        # Handle process exit codes
-        if return_code != 0:
+            output = result.stdout.strip()
+            expected_output = exercises[exercise]["outputs"][index].strip()
+
+            # Compare the program's output to the expected output
+            if output != expected_output:
+                print(
+                    f"🔴 Wrong answer at test {index}!\n\tInput: \"{input_data}\"\n\tOutput: \"{output}\"\n\tExpected: \"{expected_output}\"")
+                return
+        except subprocess.CalledProcessError as err:
+            # Handle errors when the program exits with a non-zero status
+            return_code = err.returncode
+
             if return_code > 0:
                 print(f"🔴 Test {index} exited with error code {return_code}!")
             else:
@@ -55,12 +68,8 @@ def check_exercise(exercise):
                 print(
                     f"🔴 Test {index} was terminated by signal: {signal.strsignal(signal_number)} (signal {signal_number})!")
             return
-
-        # Compare the output with expected value
-        expected_output = exercises[exercise]["outputs"][index].strip()
-        actual_output = stdout.strip()
-        if expected_output != actual_output:
-            print(f"🔴 Wrong answer at test {index}!\n\tInput: \"{input_data}\"\n\tExpected: \"{expected_output}\", Output: \"{actual_output}\"")
+        except subprocess.TimeoutExpired:
+            print(f"🔴 Test {index} timed out after {timeout} second!")
             return
 
     print(f"✔️ All tests passed!")
