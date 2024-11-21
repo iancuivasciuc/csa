@@ -10,8 +10,8 @@ Ensure that **Python 3.9** (or later) is installed on your system.
 ### Installing Python3 on Ubuntu
 Run the following commands to install Python3:
 ```bash
-sudo apt update
-sudo apt install python3
+$ sudo apt update
+$ sudo apt install python3
 ```
 
 ### Assembly Program Requirement
@@ -52,7 +52,7 @@ The script must be placed in the same directory as the executables to be tested.
 ### General Syntax
 
 ```bash
-python3 checker.py [options] [exercise]
+$ python3 checker.py [options] [exercise]
 ```
 
 ### Options
