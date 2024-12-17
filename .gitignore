@@ -1,11 +1,11 @@
-.idea/
-
+# Ignore all
 *
+
+# Don't ignore files that have a file extension
+!*.*
+
+# Don't ignore directories
 !*/
-!*.s
-!*.c
-!*.py
-!*.in
-!*.out
-!*.txt
-!*.md
+
+# Ignore ide
+.idea/
