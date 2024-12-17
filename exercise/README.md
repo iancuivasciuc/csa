@@ -70,7 +70,7 @@ $ python3 checker.py [options] [exercise]
 $ python3 checker.py -h
 usage: checker.py [-h] [-s] [{prime,factorial,binsearch,palindrome,minimax}]
 
-Check a list of assembly exercises.
+Check a list of assembly exercise.
 
 positional arguments:
   {prime,factorial,binsearch,palindrome,minimax}

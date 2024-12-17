@@ -1,0 +1,3 @@
+ce se intampla daca operanzii nu au acelasi size?
+ax e de fapt ah si al?
+prima oara trebuie sa prezint un exercitiu, dupa sa le cer lor sa o faca

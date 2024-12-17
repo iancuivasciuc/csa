@@ -1,3 +1,11 @@
 .idea/
-solutions/*
-!solutions/*.s
+
+*
+!*/
+!*.s
+!*.c
+!*.py
+!*.in
+!*.out
+!*.txt
+!*.md

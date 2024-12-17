@@ -207,7 +207,7 @@ def show_all_exercises():
 def main():
     # Setup arguments parser
     parser = argparse.ArgumentParser(
-        description="Check a list of assembly exercises."
+        description="Check a list of assembly exercise."
     )
 
     parser.add_argument(

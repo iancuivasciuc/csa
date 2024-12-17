@@ -1,0 +1,11 @@
+1. Scrieți o funcție care verifică dacă un număr dat este prim. int prime(int x);
+2. Scrieți o funcție recursivă care calculează al n-lea număr din secvența Fibonacci. int fibonnaci(int n);
+3. Scrieți o funcție care caută binar un element într-un vector sortat. Dacă elementul apare de mai multe ori,
+funcția trebuie să returneze indexul ultimei apariții. int binsearch(int left, int right, int arr[]);
+4. Scrieți o funcție care sortează un vector dat. void sort(int n, int arr[]);
+5. Scrieti o functie care verifica daca un sir de caractere este palindrom. int palindrome(char *str);
+6. Scrieți o funcție care calculează cel mai mic număr pozitiv care lipsește dintr-un vector. (int n, int arr[]);
+7. Creați un joc de X și 0. La fiecare mutare, programul afișează starea curentă a jocului.
+Jucătorul introduce două coordonate pentru a efectua mutarea. Dacă poziția este deja ocupată,
+programul afișează un mesaj care solicită alegerea unei alte poziții. La final, programul
+va afișa rezultatul: X a câștigat, 0 a câștigat sau egalitate.
