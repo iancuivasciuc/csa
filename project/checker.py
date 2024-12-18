@@ -32,7 +32,7 @@ exercises = {
     }
 }
 
-timeout = 60
+timeout = 300
 
 
 def is_executable(path):

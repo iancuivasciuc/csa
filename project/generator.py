@@ -27,11 +27,10 @@ def generate(input_file):
                 fin.write(f"{fd}\n")
                 files.add(fd)
 
-                dim = random.randint(9, 8200)
+                dim = random.randint(9, 9000)
                 fin.write(f"{dim}\n")
         elif command == 2:
             fd = random.choice(list(files))
-            files.remove(fd)
             fin.write(f"{fd}\n")
         elif command == 3:
             fd = random.choice(list(files))
