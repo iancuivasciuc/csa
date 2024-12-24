@@ -68,7 +68,7 @@ def check_exercise(exercise):
         test_dir = os.path.join(tests_path, test[0])
         assert os.path.exists(test_dir) and os.path.isdir(test_dir)
 
-        num_tests = len(os.listdir(test_dir)) // 2
+        num_tests = len([file for file in os.listdir(test_dir) if file.endswith(".in")])
         passed = True
 
         for i in range(1, num_tests + 1):
