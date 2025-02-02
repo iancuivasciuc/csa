@@ -44,7 +44,7 @@ def generate(input_file):
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python3 generator.py <input.txt>")
+        print("Usage: python3 testgen.py <input.txt>")
         return
 
     input_file = sys.argv[1]

@@ -35,15 +35,6 @@ def is_executable(path):
     return os.path.isfile(path) and os.access(path, os.X_OK)
 
 
-def print_comparison(input_data, output, expected_output):
-    print("Test Input:")
-    print(input_data)
-    print("Your Output:")
-    print(output)
-    print("Expected Output:")
-    print(expected_output)
-
-
 def check_exercise(exercise):
     print(f"Checking {exercise}:\n")
 
@@ -97,20 +88,17 @@ def check_exercise(exercise):
 
                 if output != expected_output:
                     print(f"🔴 Test {i} failed!\n")
-                    print_comparison(input_data, output, expected_output)
-
                     output_lines = output.splitlines()
                     expected_output_lines = expected_output.splitlines()
 
                     for idx in range(
-                        min(len(output_lines), len(expected_output_lines))
+                            min(len(output_lines), len(expected_output_lines))
                     ):
                         if output_lines[idx] != expected_output_lines[idx]:
                             print(f"First difference at line {idx + 1}:")
                             print(f'Your output:      "{output_lines[idx]}"')
                             print(f'Expected output:  "{expected_output_lines[idx]}"')
                             break
-
 
                     passed = False
                     break
@@ -120,7 +108,6 @@ def check_exercise(exercise):
             except subprocess.CalledProcessError as err:
                 return_code = err.returncode
                 print(f"🔴 Test {i} failed!\n")
-                print_comparison(input_data, "", expected_output)
 
                 if return_code > 0:
                     print(f"Program exited with error code {return_code}!\n")
@@ -135,7 +122,6 @@ def check_exercise(exercise):
 
             except subprocess.TimeoutExpired:
                 print(f"🔴 Test {i} timed out after {timeout} seconds!\n")
-                print_comparison(input_data, "", expected_output)
                 passed = False
                 break
 
@@ -147,7 +133,7 @@ def check_exercise(exercise):
             print(f"✅ Passed all tests in {test[0].upper()}!\n")
         else:
             print(f"🔴 Failed tests in {test[0].upper()}!\n")
-        
+
         print("-" * 80, '\n')
 
     print(f"{exercise}: {test_score}/{exercises[exercise]['max_score']}!\n")

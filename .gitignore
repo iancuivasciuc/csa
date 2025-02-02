@@ -1,4 +1,4 @@
-# Ignore add_get_delete_defragmentation
+# Ignore all
 *
 
 # Don't ignore files that have a file extension
@@ -9,9 +9,3 @@
 
 # Ignore ide
 .idea/
-
-# Ignore solutions
-project/task1.py
-project/task2.py
-project/task1.cpp
-project/task2.cpp
